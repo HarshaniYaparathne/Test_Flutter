@@ -8,19 +8,22 @@ class SignUpPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Sign Up'),
-        backgroundColor: Colors.blue, // Set the app bar color to blue
+        backgroundColor: const Color.fromARGB(255, 28, 83, 128), // Set the app bar color to blue
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextFormField(
-              decoration: InputDecoration(
-                labelText: 'Full Name',
-                icon: Icon(Icons.person),
+      
+      body: Container(
+        color: Color.fromARGB(255, 121, 145, 209), // Set background color to ash color
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: 'Full Name',
+                  icon: Icon(Icons.person),
+                ),
               ),
-            ),
             SizedBox(height: 20),
             TextFormField(
               decoration: InputDecoration(
@@ -56,12 +59,13 @@ class SignUpPage extends StatelessWidget {
               },
               child: Text(
                 'Already have an account? Log In',
-                style: TextStyle(color: Colors.blue),
+                style: TextStyle(color: Color.fromARGB(255, 25, 26, 13)),
               ),
             ),
           ],
         ),
       ),
+    ),
     );
   }
 }
