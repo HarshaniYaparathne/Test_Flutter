@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'SignUp.dart';
+import 'LogIn.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -52,6 +53,12 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 10), // Adding space between buttons
               ElevatedButton(
                 onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                  // Action for Log In button
+                  // Add your logic here
                   // Action for Log In button
                   // Add your logic here
                 },
