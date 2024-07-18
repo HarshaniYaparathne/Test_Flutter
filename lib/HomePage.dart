@@ -10,7 +10,54 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Hi everyone!'),
-        backgroundColor: Colors.blue, // Set the app bar color to blue
+        backgroundColor: Colors.blue,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsPage()),
+              );
+            },
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Navigation Menu',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Profile'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
+            ),
+          ],
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -33,45 +80,102 @@ class HomePage extends StatelessWidget {
                 'Welcome to HomePage!',
                 style: TextStyle(fontSize: 24.0),
               ),
-              SizedBox(height: 20), // Adding space between text and buttons
+              SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => SignUpPage()),
                   );
-                  // Action for Sign Up button
-                  // Add your logic here
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.green, // Change button color to green
-                  textStyle: TextStyle(fontSize: 20), // Change font size
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20), // Change button size
+                  primary: Colors.green,
+                  textStyle: TextStyle(fontSize: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                 ),
                 child: Text('Sign Up'),
               ),
-              SizedBox(height: 10), // Adding space between buttons
+              SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => LoginPage()),
                   );
-                  // Action for Log In button
-                  // Add your logic here
-                  // Action for Log In button
-                  // Add your logic here
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.yellow, // Change button color to red
+                  primary: Colors.yellow,
                   textStyle: TextStyle(fontSize: 20),
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20), // Change font size
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                 ),
                 child: Text('Log In'),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // Toggle between light and dark mode
+                },
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.black,
+                  textStyle: TextStyle(fontSize: 20),
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                ),
+                child: Text('Toggle Dark Mode'),
               ),
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.blue,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.home),
+              color: Colors.white,
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.person),
+              color: Colors.white,
+              onPressed: () {},
+            ),
+            IconButton(
+              icon: Icon(Icons.settings),
+              color: Colors.white,
+              onPressed: () {},
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SettingsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Settings'),
+      ),
+      body: Center(
+        child: Text('Settings Page'),
+      ),
+    );
+  }
+}
+
+class ProfilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Profile'),
+      ),
+      body: Center(
+        child: Text('Profile Page'),
       ),
     );
   }
