@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'SignUp.dart';
 import 'LogIn.dart';
+import 'ProfilePage.dart'; // Import the ProfilePage
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -110,18 +111,6 @@ class HomePage extends StatelessWidget {
                 ),
                 child: Text('Log In'),
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Toggle between light and dark mode
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
-                  textStyle: TextStyle(fontSize: 20),
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                ),
-                child: Text('Toggle Dark Mode'),
-              ),
             ],
           ),
         ),
@@ -139,12 +128,22 @@ class HomePage extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.person),
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
             ),
             IconButton(
               icon: Icon(Icons.settings),
               color: Colors.white,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SettingsPage()),
+                );
+              },
             ),
           ],
         ),
@@ -162,20 +161,6 @@ class SettingsPage extends StatelessWidget {
       ),
       body: Center(
         child: Text('Settings Page'),
-      ),
-    );
-  }
-}
-
-class ProfilePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile'),
-      ),
-      body: Center(
-        child: Text('Profile Page'),
       ),
     );
   }
